@@ -19,6 +19,17 @@ vim.opt.rtp:prepend(lazypath)
 local plugins= {
 				{"catppuccin/nvim", name = "catppuccin", priority = 1000},
 				{"nvim-telescope/telescope.nvim", tag = "0.1.8", dependencies = {"nvim-lua/plenary.nvim"}},
+				{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = function ()
+								local configs = require("nvim-treesitter.configs")
+
+								configs.setup({
+								ensure_installed = {"c", "go", "lua", "make", "dockerfile", "html", "javascript", "json", "svelte", "tsx", "typescript", "vim", "vimdoc"},
+								sync_install = false,
+								highlight = {enable = true},
+								indent = {enable = true},
+								})
+				end
+				},
 				
 }
 
