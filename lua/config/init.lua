@@ -1,3 +1,7 @@
+-- Import Keymaps
+
+require("config.keymaps")
+
 -- Disable unused language providers
 
 vim.cmd("let g:loaded_perl_provider= 0")
@@ -16,7 +20,7 @@ vim.cmd("set rnu")
 
 -- Set list Char
 vim.opt.list = true
-vim.opt.listchars = { tab = ">> ", trail = ">" }
+vim.opt.listchars = { tab = ">> ", trail = "." }
 
 -- Enable nerd font
 vim.g.have_nerd_font = true

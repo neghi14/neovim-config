@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "tailwindcss", "dockerls", "emmet_ls", "gopls", "biome" },
+                ensure_installed = { "lua_ls", "tailwindcss", "dockerls", "emmet_ls", "gopls" },
             })
         end,
     },
@@ -33,7 +33,9 @@ return {
             lspconfig.dockerls.setup({
                 capabilities = capabilities,
             })
-
+            lspconfig.emmet_ls.setup({
+                capabilities = capabilities,
+            })
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})

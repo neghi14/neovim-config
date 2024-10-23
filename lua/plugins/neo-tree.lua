@@ -8,7 +8,12 @@ return {
 	},
 
 	config = function()
-		vim.keymap.set("n", "<leader>z", ":Neotree filesystem reveal left<CR>", {})
-		vim.keymap.set("n", "<leader>x", ":Neotree filesystem close<CR>", {})
+        require("neo-tree").setup({
+            sources = {
+                "filesystem",
+                "buffers",
+                "git_status"
+            }
+        })
 	end
 }
