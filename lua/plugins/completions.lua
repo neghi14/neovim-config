@@ -5,6 +5,7 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = { "saadparwaiz1/cmp_luasnip", "rafamadriz/friendly-snippets" },
+		build = "make install_jsregexp",
 	},
 	{
 		"hrsh7th/nvim-cmp",
@@ -30,8 +31,8 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					 { name = "nvim_lsp" },
-					{ name = "luasnip" }, 
+					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
 				}, {
 					{ name = "buffer" },
 				}),
