@@ -10,11 +10,9 @@ vim.keymap.set("n", "<leader>tz", ":tabprevious<CR>", {})
 vim.keymap.set("n", "<leader>tx", ":tabnext<CR>", {})
 
 -- Neofetch keymaps
-
-vim.keymap.set("n", "<leader>z", ":Neotree filesystem reveal left<CR>", {})
-vim.keymap.set("n", "<leader>x", ":Neotree filesystem close<CR>", {})
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", {})
 
 -- Terminal Keymaps
 
-vim.keymap.set("n", "<leader>term", ":terminal<CR>",{})
+vim.keymap.set("n", "<leader>term", ":terminal<CR>", {})
 vim.keymap.set("t", "<leader>x", "<C-\\><C-n>", {})
