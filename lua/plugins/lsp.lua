@@ -7,11 +7,9 @@ return {
     },
     {
         "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "tailwindcss", "dockerls", "emmet_ls", "gopls", "ts_ls", "svelte" },
-            })
-        end,
+        opts = {
+            ensure_installed = { "lua_ls", "tailwindcss", "dockerls", "emmet_ls", "gopls", "ts_ls", "svelte", "intelephense" },
+        },
     },
     {
         "neovim/nvim-lspconfig",
@@ -36,7 +34,10 @@ return {
             lspconfig.emmet_ls.setup({
                 capabilities = capabilities,
             })
-           lspconfig.svelte.setup({
+            lspconfig.svelte.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.intelephense.setup({
                 capabilities = capabilities,
             })
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
