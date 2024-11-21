@@ -1,3 +1,4 @@
+local lsps = { "lua_ls", "tailwindcss", "dockerls", "emmet_ls", "gopls", "ts_ls", "svelte", "intelephense" }
 return {
     {
         "williamboman/mason.nvim",
@@ -8,7 +9,7 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         opts = {
-            ensure_installed = { "lua_ls", "tailwindcss", "dockerls", "emmet_ls", "gopls", "ts_ls", "svelte", "intelephense" },
+            ensure_installed = lsps,
         },
     },
     {
@@ -16,32 +17,12 @@ return {
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({
+            for _, lsp in pairs(lsps) do
+             lspconfig[lsp].setup({
                 capabilities = capabilities,
             })
-            lspconfig.ts_ls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.tailwindcss.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.gopls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.dockerls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.emmet_ls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.svelte.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.intelephense.setup({
-                capabilities = capabilities,
-            })
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+            end
+            vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
         end,
     },
