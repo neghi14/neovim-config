@@ -8,6 +8,7 @@ return {
                 null_ls.builtins.formatting.prettier,
                 null_ls.builtins.diagnostics.golangci_lint,
                 null_ls.builtins.formatting.pint,
+                null_ls.builtins.formatting.blade_formatter,
             },
         })
 
